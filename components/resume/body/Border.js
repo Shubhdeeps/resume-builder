@@ -5,7 +5,9 @@ import { useUserDataStore } from "../../../store/store"
 const Border = () => {
     const font = useUserDataStore(state => state.font)
     const fontUrl = useUserDataStore(state => state.fontUrl)
-    const color = useUserDataStore(state => state.color)
+    const primary = useUserDataStore(state => state.primary)
+    const textColor = useUserDataStore(state => state.text)
+
 
 
     return(
@@ -16,8 +18,8 @@ const Border = () => {
             @import url(${fontUrl});
 
             .resume-border{
-                background: ${color.background};
-                color: ${color.color};
+                background: ${primary};
+                color: ${textColor};
                 font-family: ${font.family};
             }
             `}</style>

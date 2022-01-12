@@ -1,19 +1,14 @@
 import { useUserDataStore } from "../../../store/store";
 
 
-const Theme = ({ color }) => {
+const Theme = ({ color, setColor }) => {
 
-    const setColor = useUserDataStore(state => state.setColor)
-
-    const handleClick = (secondary, primary) => {
-        setColor({
-            background: secondary,
-            color: primary
-        })
+    const handleClick = (color, setColor) => {
+        setColor(`${color}`)
     }
     return(
         <> 
-        <div className="box" style={{background: color}}>
+        <div className="box" style={{background: `${color}`}} onClick={() => handleClick(color, setColor)}>
         </div>
         </ >
     )
