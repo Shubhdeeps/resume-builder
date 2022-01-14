@@ -15,9 +15,7 @@ const navItems = [{text: "home", icon: <HomeIcon />},
 {text: "theme", icon: <PaletteIcon />},
 {text: "photo", icon: <PhotoCameraSharpIcon />}, 
 {text: "background", icon: <TextureIcon />},
-{text: "icons", icon: <EmojiEmotionsIcon />}, 
-{text: "info", icon: <InfoIcon />},
-{text: "personal", icon: <FolderSharedIcon />}];
+{text: "icons", icon: <EmojiEmotionsIcon />}];
 
 const Toolbarlist = () => {
 

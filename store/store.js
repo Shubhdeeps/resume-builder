@@ -1,5 +1,6 @@
 import create from 'zustand'
 
+
 const activeStore = (set) => ({
     active: "home",
     setActive: (status) =>
@@ -31,7 +32,14 @@ const userData = (set) => ({
 
 })
 
+const personalData = (set) => ({
+    image: {},
+
+    setImage: (image) => set(() => ( {image: image})),
+})
+
 // add persist method for the activeStore
 //add persist method for the personal details
 export const useActiveStore = create(activeStore)
 export const useUserDataStore = create(userData)
+export const usePesonalDataStore = create(personalData)
