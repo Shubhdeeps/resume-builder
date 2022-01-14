@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
         <Appbarst />
         <Grid 
           container
-          className="main">
+          className="main" id='main'>
               <Grid
               item lg={12}
               >  </Grid>

@@ -16,6 +16,8 @@ const userData = (set) => ({
     secondary: 'green',
     text: 'white',
     css: {},
+    iconColor: 'white',
+    iconSize: 1,
     
 
 
@@ -24,6 +26,8 @@ const userData = (set) => ({
     setSecondary: (color) => set(() => ( {secondary: color} )),
     setText: (color) => set(() => ( {text: color} )),
     setCss: (css) => set(() => ( {css: css} )),
+    setIconColor: (color) => set(() => ( {iconColor: color})),
+    setIconSize: (size) => set(() => ( {iconSize: size})),
 
 })
 

@@ -7,7 +7,7 @@ const template = () => {
     return(
         <div>
            <Link href='/personal'>
-            <h1> Templates </h1>
+        
             </Link>
         </div>
     )

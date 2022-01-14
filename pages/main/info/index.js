@@ -10,9 +10,7 @@ const info = () => {
     
     return(
         <Layout>
-        <h3>
-            info
-        </h3>
+           
         </Layout>
     )
 

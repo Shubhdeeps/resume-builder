@@ -9,6 +9,7 @@
     width: 100%;
     height: 90vh;
     top: 8vh;
+
 }
 
 
@@ -16,6 +17,10 @@
     position: relative;
     height: 90%;
     background: var(--primary);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -170,4 +175,89 @@ transition: 0.5s ease;
     cursor: pointer;
     border-radius: 5px;
     margin-top: 15px;
+}
+
+.personal-container{
+    height: 100vh;
+    text-align: end;
+    color: white;
+    font-size: 26px;
+    overflow: hidden;
+}
+
+.personal-inner{
+    height: 70%;
+    background: var(--primary);
+    border: 1px solid red;
+}
+
+.personal-tabs{
+    height: 100%;
+    background: var(--back);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.tab{
+    background: var(--primary);
+    padding: 5px;
+    margin-left: 2px;
+
+}
+
+
+.heading{
+    color: white;
+    text-align: center;
+    font-weight: 500;
+}
+
+.icon-container{
+    width: 95%;
+    height: 46%;
+    padding: 3px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+.icons{
+   
+    width: 50px;
+    height: 50px;
+    background: var(--back);
+    margin: 2px;
+    border-radius: 10px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-color-box{
+    width: 95%;
+    height: 25%;
+    padding: 3px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+.slider{
+    width: 95%;
+    height: 15%;
+    padding: 5px;
+    margin-top: 25px;
+    border-top: 1px solid rgb(41, 41, 41);
+    border-bottom:1px solid rgb(41, 41, 41);
+}
+
+svg{
+    border: 1px solid green;
+    resize: both;
+}
+#path{
+    border: 1px solid red;
 }
