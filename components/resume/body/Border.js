@@ -1,3 +1,4 @@
+import Draggable from "react-draggable"
 import { useUserDataStore } from "../../../store/store"
 
 
@@ -9,16 +10,21 @@ const Border = () => {
     const secondary = useUserDataStore(state => state.secondary)
     const textColor = useUserDataStore(state => state.text)
     const css = useUserDataStore(state => state.css)
-
-
+    const iconColor = useUserDataStore(state => state.iconColor)
+    const iconSize = useUserDataStore(state => state.iconSize)
+   
     
+
     return(
         <div className="resume-border" id="my-node">
             <div className="head-content">
-            <h1> Hello this is my resume </h1>
+            <h1 className="react-draggable"> Hello this is my resume </h1>
             </div>
             <div className="body-content">     
             <p> Hello this is my resume </p>
+            </div>
+            <div id="iconz" >
+               
             </div>
             <style jsx>{`
             @import url(${fontUrl});
@@ -41,6 +47,17 @@ const Border = () => {
             .border-content{
                 z-index: 2;
                 
+            }
+            #iconz{
+                border: 1px solid red;
+                cursor: move;
+                width: 50px;
+                height: 50px;
+                color: ${iconColor};
+            }
+            #iconz svg{
+                width: 3em;
+                height: ${iconSize}em;
             }
             `}</style>
         </div>
