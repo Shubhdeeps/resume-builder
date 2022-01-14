@@ -1,6 +1,5 @@
 import create from 'zustand'
 
-
 const activeStore = (set) => ({
     active: "home",
     setActive: (status) =>
@@ -19,6 +18,13 @@ const userData = (set) => ({
     css: {},
     iconColor: 'white',
     iconSize: 1,
+    iconPosition: [
+        {
+            x: 100,
+            y: 100
+        }
+    ],
+    icon: [],
     
 
 
@@ -29,6 +35,8 @@ const userData = (set) => ({
     setCss: (css) => set(() => ( {css: css} )),
     setIconColor: (color) => set(() => ( {iconColor: color})),
     setIconSize: (size) => set(() => ( {iconSize: size})),
+    setIconPosition: (x, y) => set((state) => ({iconPosition: [...state.iconPosition, {x: x, y: y}]})),
+    setIcon: (newIcon) => set((state) => ({icon: [...state.icon, newIcon] }) ),
 
 })
 

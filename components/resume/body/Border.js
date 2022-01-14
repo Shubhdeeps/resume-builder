@@ -1,3 +1,5 @@
+import Draggable from "react-draggable"
+import icon from "../../../pages/main/icons"
 import { usePesonalDataStore, useUserDataStore } from "../../../store/store"
 
 
@@ -11,7 +13,9 @@ const Border = () => {
     const iconColor = useUserDataStore(state => state.iconColor)
     const iconSize = useUserDataStore(state => state.iconSize)
     const Image = usePesonalDataStore(state => state.image)
-    
+    const icons = useUserDataStore(state => state.icon)
+
+    console.log(icons)
 
     return(
         <div className="resume-border" id="my-node">
@@ -22,8 +26,16 @@ const Border = () => {
             <p> Hello this is my resume </p>
             </div>
             <img src={Image} width="200" height="200" alt='pfp'/>
+            { 
+            icons.map((x, index) =>{ return(
+                            <Draggable>
+                                <div className="icon-list" key={index}  dangerouslySetInnerHTML={{__html: x.icon}} /> 
+                            </Draggable>    
+                     )}) 
+            }
             <style jsx>{`
             @import url(${fontUrl});
+            
             .resume-border{
                 background: ${secondary};
                 color: ${textColor};
@@ -44,11 +56,15 @@ const Border = () => {
                 z-index: 2;
                 
             }
-            svg{
-                width: 3em;
-                color: ${iconColor};
-                height: ${iconSize}em;
+            .icon-list{
+                width: fit-content;
+                color: ${iconColor}; 
+                border: 1px solid red;
             }
+            .resume-border svg{
+                width: 3em;
+                height: 3em;
+            }     
             `}</style>
         </div>
     )

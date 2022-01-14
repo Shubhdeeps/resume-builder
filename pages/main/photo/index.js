@@ -1,8 +1,10 @@
 import Layout from "../../../layout/Layout";
 import imageToBase64 from 'image-to-base64/browser';
-import { usePesonalDataStore } from "../../../store/store";
+import { useActiveStore, usePesonalDataStore } from "../../../store/store";
 
 const photo = () => {
+     const setActive = useActiveStore(State => State.setActive)
+      setActive("photo")
 
     const setImage = usePesonalDataStore(state => state.setImage);
 

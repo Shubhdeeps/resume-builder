@@ -7892,26 +7892,22 @@ const icon = () => {
     const setIconSize = useUserDataStore(state => state.setIconSize)
     const iconColor = useUserDataStore(state => state.iconColor)
     const iconSize = useUserDataStore(state => state.iconSize)
+    const setIcon = useUserDataStore(state => state.setIcon)
+    const setIconPosition = useUserDataStore(state => state.setIconPosition)
 
-    const handleClick = (e) => {
-        if(e.target.nodeName === 'DIV'){
-             document.getElementById('my-node').append(e.target)
-        }
-        else if(e.target.nodeName === 'svg'){
-            document.getElementById('my-node').append(e.target.parentNode)
-        }
-        else if(e.target.nodeName === 'path'){
-            document.getElementById('my-node').append(e.target.parentNode.parentNode)
-        }
+  
+
+    const handleClick = (x) => {
+       console.log(x)
+       setIcon(x)
     }
+
     return(
         <Layout>
             <div className='icon-container'>
                 {icons.map((x, index) => (
                      <div className='icons' key={index}   >
-                        <Draggable onStart={(e) => handleClick(e)}>
-                                <div onClick={(e) => handleClick(e)} id='icon'  dangerouslySetInnerHTML={{__html: x.icon}} /> 
-                        </Draggable> 
+                                <div onClick={() => handleClick(x)} id='icon'  dangerouslySetInnerHTML={{__html: x.icon}} /> 
                      </div>
                 ))}
             </div>
@@ -7934,12 +7930,12 @@ const icon = () => {
             </div>
                 <style>{`
                     #icon{
-                        color: ${iconColor};
                         z-index: 99;
+                        color: white;
                     }
                     svg{
-                        width: 3em;
-                        height: ${iconSize}em;
+                        width: 2em;
+                        height: 2em;
                     }
                 `}</style>
         </Layout>
