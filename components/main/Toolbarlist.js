@@ -3,19 +3,13 @@ import HomeIcon from '@mui/icons-material/Home';
 import FontDownloadIcon from '@mui/icons-material/FontDownload';
 import PaletteIcon from '@mui/icons-material/Palette';
 import PhotoCameraSharpIcon from '@mui/icons-material/PhotoCameraSharp';
-import TextureIcon from '@mui/icons-material/Texture';
-import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
-import InfoIcon from '@mui/icons-material/Info';
-import FolderSharedIcon from '@mui/icons-material/FolderShared';
 import { useRouter } from "next/router";
 import { useActiveStore } from '../../store/store.js'
 
 const navItems = [{text: "home", icon: <HomeIcon />}, 
 {text: "font", icon: <FontDownloadIcon />},
 {text: "theme", icon: <PaletteIcon />},
-{text: "photo", icon: <PhotoCameraSharpIcon />}, 
-{text: "background", icon: <TextureIcon />},
-{text: "icons", icon: <EmojiEmotionsIcon />}];
+{text: "photo", icon: <PhotoCameraSharpIcon />}]
 
 const Toolbarlist = () => {
 
