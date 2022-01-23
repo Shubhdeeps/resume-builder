@@ -3,14 +3,13 @@ import { useRouter } from 'next/router'
 import { usePesonalDataStore, useUserDataStore } from '../../store/store'
 
 const res1 = '/res1.jpg'
-const res2 = '/res2.png'
-const res3 = '/res3.png'
+const res2 = '/res2.jpg'
 
 
 
 const template = () => {
     
-    const arr = [res1, res2, res3]
+    const arr = [res1, res2]
     const route = useRouter()
     const setPrimary = useUserDataStore(state => state.setPrimary)
     const setSecondary = useUserDataStore(state => state.setSecondary)
@@ -32,6 +31,12 @@ const template = () => {
             setTextColor(`#1E150E`),
             setImage(`https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80`)
             break;
+            case 1: 
+            setPrimary(`#DDC2C2`),
+            setSecondary(`#FF5252`),
+            setTextColor(`#1E150E`),
+            setImage(`https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80`)
+            break;
         }
     }
 
@@ -46,9 +51,10 @@ const template = () => {
                     return(
                        <div key={ind} className='image-container-template'> 
                         <Image  
+                        id="img-template"
                         onClick={() => handleClick(ind)}
                         src={x} 
-                        width={600}
+                        width={450}
                         height={700}
                         />
                         </ div>

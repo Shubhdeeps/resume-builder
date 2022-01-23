@@ -1,9 +1,16 @@
 import { useUserDataStore } from "../../../store/store";
 import TemplateOne from "./TemplateOne";
+import TemplateTwo from "./TemplateTwo";
 
-const Template = ({ children }) => {
+const Template = () => {
     const template = useUserDataStore(state => state.templateNumber)
     let temp;
+
+    const saveAppear = () => {
+        const save =   document.querySelector('.save-changes')
+        save.classList.remove('hide')
+    }
+    
     switch(template){
         case 0: 
         temp = <TemplateOne />
@@ -14,9 +21,8 @@ const Template = ({ children }) => {
         break;       
     }
     return(
-        <div className="template">
+        <div className="template" onInput={() => saveAppear()}>
           {temp}
-         { children }
         </div>
      )
 }

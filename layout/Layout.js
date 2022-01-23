@@ -17,6 +17,7 @@ const Layout = ({ children }) => {
   const setOccupation = usePesonalDataStore(state => state.setOccupation)
   const setContact = usePesonalDataStore(state => state.setContact)
   
+
   const saveList = () => {
     const name = document.querySelector('#resume-name')
     const experienceList = document.querySelector('#experience-body-one').childNodes
@@ -24,14 +25,15 @@ const Layout = ({ children }) => {
     const skills = document.querySelector('.select-skills').childNodes
     const objec = document.querySelector('.about-container-one').firstChild
     const occupation = document.querySelector('.occupation-one').innerText
-    const contact = document.querySelector('.contact-container-one').childNodes
+    const contact = document.querySelector('#contact-container-one').childNodes
+
 
     const contactObj = {
       location: contact[0].innerText,
       phone: contact[1].innerText,
       email: contact[2].innerText,
       web: contact[3].innerText
-  }
+    }
 
   setContact(contactObj)
     const number = skills.length - skillsData.length
@@ -62,7 +64,8 @@ const Layout = ({ children }) => {
         body: element.children[2].innerText
       }
       updateExperience(experience, index)
-    })
+    });
+
     setName(name.innerText)
     setObjective(objec.innerText)
     setOccupation(occupation)
@@ -100,9 +103,6 @@ const Layout = ({ children }) => {
                 <Border /> 
                 </div> 
                 <div className='space'></div>   
-                <div className='tool-window'>
-                  <div className='tools-icons'>hello, these are tools</div>
-                </div>    
               </Grid>
               <Grid item lg={0.5}></Grid>             
          </Grid>   

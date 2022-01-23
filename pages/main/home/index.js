@@ -1,15 +1,18 @@
 
+import Image from "next/image";
 import { useRouter } from "next/router";
 import Layout from "../../../layout/Layout";
 import { useActiveStore, useUserDataStore } from "../../../store/store";
 
 const res1 = '/res1.jpg'
-const res2 = '/res2.png'
+const res2 = '/res2.jpg'
 const res3 = '/res3.png'
+
 const home = () => {
 
     const setActive = useActiveStore(State => State.setActive)
     setActive("home")
+
     const templateNumber = useUserDataStore(state => state.templateNumber)
     const primary = useUserDataStore(state => state.primary)
     const secondary = useUserDataStore(state => state.secondary)
@@ -33,12 +36,12 @@ const home = () => {
         <Layout>
             <div className="home">
                 Active template
-                <img src={arr[templateNumber]}
+                <Image src={arr[templateNumber]}
                 width={250}
                 height={350}
                 />
                 <div onClick={() => handleClick()} className="change-template">
-                    Change template
+                    <p>Change template</p>
                 </div>
                 <br />
                 Active color theme

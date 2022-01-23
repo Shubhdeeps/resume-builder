@@ -1,6 +1,16 @@
 import { usePesonalDataStore, useUserDataStore } from "../../../store/store";
 import React from 'react'
 import { useRouter } from "next/router";
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import ExperienceContent from "./components/ExperienceContent";
+import EducationContent from "./components/EducationContent";
+import SkillsContent from "./components/SkillsContent";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+import EmailIcon from '@mui/icons-material/Email';
+import LanguageIcon from '@mui/icons-material/Language';
+
 const TemplateOne = () => {
 
 const primary = useUserDataStore(state => state.primary)
@@ -21,12 +31,9 @@ const removeExperiencField = (elementClass) => {
     const element = document.getElementById(elementClass)
     element.removeChild(element.lastChild);
 }
-const saveAppear = () => {
-    const save =   document.querySelector('.save-changes')
-    save.classList.remove('hide')
-}
+
     return(
-        <div className="template" onInput={() => saveAppear()}>
+        <div className="template">
             <div className="top-header" style={{background: primary}}> 
             <div className="image-container-one" onClick={() => route.push('/main/photo')}>
                 <img className="image-one" src={Image} alt='pfp'/>
@@ -34,61 +41,61 @@ const saveAppear = () => {
             </div>
             <div className="second-header" style={{background: primary}}>
                 <div className="container-one"> 
-                     <p contenteditable="true" className="name-one" id='resume-name'> {name} </p>
+                     <p contentEditable="true" className="name-one" id='resume-name'> {name} </p>
                         <div className="occupation-container-one" style={{background: primary}}> 
-                            <p style={{color: secondary}} contenteditable="true" className="occupation-one">
+                            <p style={{color: secondary}} contentEditable="true" className="occupation-one">
                                 {occupation}
                             </p>
                         </div>
                         <div className="about-container-one">
-                            <p contenteditable="true">
+                            <p contentEditable="true"> 
                              {objective}
                             </p>
                         </div>          
                 </div>
-                <div className="contact-container-one">
-                    <p contenteditable="true">{contact.location}</p>
-                    <p contenteditable="true">{contact.phone}</p>
-                    <p contenteditable="true">{contact.email}</p>
-                    <p contenteditable="true">{contact.web}</p>
+                <div className="contact-container-one" id="contact-container-one">
+                    <p contentEditable="true"><LocationOnIcon />{contact.location}</p>
+                    <p contentEditable="true"><PhoneAndroidIcon />{contact.phone}</p>
+                    <p contentEditable="true"><EmailIcon />{contact.email}</p>
+                    <p contentEditable="true"><LanguageIcon />{contact.web}</p>
                 </div>
             </div>
             <div className="body-one-container">
                 <div className="body-one">
                     <div className="experience-heading-one">
                         <div style={{background: primary}} className="heading-container-one">
-                            <p contenteditable="true"> experience</p>
+                            <p contentEditable="true"> experience</p>
                         </div>
                         <div id='experience-body-one'>
-                          {experience.map(x => {
-                                return(<ExperienceContent key={x.company} x={x} />)
+                          {experience.map((x, index)=> {
+                                return(<ExperienceContent key={index} x={x} />)
                           })  }
                         </div> 
-                <div className="add-field-one" onClick={() => addExperience()}>Add Field</div>
-                <div className="add-field-one" onClick={() => removeExperiencField('experience-body-one')}>Remove Field</div>
+                <div className="add-field-one" onClick={() => addExperience()}><AddCircleIcon /></div>
+                <div className="add-field-one" onClick={() => removeExperiencField('experience-body-one')}><RemoveCircleIcon /></div>
                     </div>
                 </div>
                     <div className="education-skill-container">
                         <div className="body-one-education">
                             <div id="education-body-one">
                                 <div style={{background: primary}} className="heading-container-one">
-                                <p contenteditable="true"> education</p>
+                                <p contentEditable="true"> education</p>
                                 </div> 
                               <div id='select-education'>  
-                              {education.map(x => {
-                                  return(<EducationContent key={x.name} x={x} />)
+                              {education.map((x, index) => {
+                                  return(<EducationContent key={index} x={x} />)
                               })}
                               </div>
                             </div>
-                                <div className="add-education-one" onClick={() => addEducation()}>Add Field</div>
-                                <div className="add-education-one" onClick={() => removeExperiencField("education-body-one")}>Remove Field</div>
+                                <div className="add-education-one" onClick={() => addEducation()}><AddCircleIcon /></div>
+                                <div className="add-education-one" onClick={() => removeExperiencField("select-education")}> <RemoveCircleIcon /> </div>
                         </div>
                         <br />
                         <div className="body-one-skills">
                             <div style={{background: primary}} className="heading-container-one">
-                                    <p contenteditable="true"> Skills</p>
+                                    <p contentEditable="true"> Skills</p>
                                 </div>
-                                    <ul contenteditable="true" id="skills-one" className="select-skills">
+                                    <ul contentEditable="true" id="skills-one" className="select-skills">
                                         {skills.map((x, index) => {
                                             return(
                                                 <SkillsContent key={index} x={x} />
@@ -99,36 +106,6 @@ const saveAppear = () => {
                 </div>     
             </div>
         </div>
-    )
-}
-
-const SkillsContent = ({ x }) => {
-    return(
-        <li >
-            {x.name}
-        </li>
-    )
-}
-
-const EducationContent = ({ x }) => {
-    return(
-        <>
-            <div className="experience-tag-one"> <span contenteditable="true">{x.name}</span><br/>
-            <div contenteditable="true">{x.school}</div>
-            <br />
-            <div contenteditable="true" id='sub-head-one'>{x.year}</div>
-            </div>
-        </>
-    )
-}
-
-const ExperienceContent = ({ x }) => {
-    return(
-        <div className='resume-experience'>
-            <div className="experience-tag-one"> <span contenteditable="true">{x.head}</span><div contenteditable="true">{x.company}</div></div>
-            <div contenteditable="true" id='sub-head-one'>{x.year}</div>
-            <div contenteditable="true" id='para-head-one'> {x.body} </div>
-        </div> 
     )
 }
 

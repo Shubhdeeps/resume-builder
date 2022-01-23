@@ -40,7 +40,7 @@ let userData = (set) => ({
 
 let personalData = (set) => ({
     image: {},
-    name: 'MARIA PEREZ',
+    name: 'Name Lastname',
     objective: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
     occupation: "Graphic designer",
     contact: {
@@ -74,7 +74,7 @@ let personalData = (set) => ({
     updateSkills: (skills, index) => set((state) => (state.skills[index] = skills)),
 })
 
-personalData = persist(personalData, { name: 'user_settings' })
+// personalData = persist(personalData, { name: 'user_settings' })
 
 // add persist method for the activeStore
 //add persist method for the personal details
